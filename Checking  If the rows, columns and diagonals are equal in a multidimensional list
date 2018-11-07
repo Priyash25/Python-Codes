@@ -1,0 +1,79 @@
+
+'''
+game = [ [1,1,1],
+          [0,2,0],
+          [2,2,0]]
+ 
+def win(current_game):
+    for i in game:
+         #print(i)
+        all_match=True
+        for y in i:
+            #print(i,row[0])
+            if y!=i[0]:
+                all_match=False
+        if all_match:
+             print(i)
+             print('Winner')
+         
+         
+ win(game)
+
+'''
+
+'''
+game = [ [1,1,1],
+         [0,2,0],
+         [2,2,0]  ]
+ 
+def win(current_game):
+    for i in game:
+        
+        if i.count(i[0])==len(i) and i[0]!=0:
+            #print(i.count())
+            print(i[0])
+            print(i.count(i[0]))
+            print('Winner')
+            
+win(game)
+
+'''
+
+'''
+game = [ [1,1,1],
+         [1,2,0],
+         [1,2,0],
+         [1,4,7] ]
+
+#print(len(game[0]))
+
+def win(current_game):
+    
+    for col in range(len(current_game[0])):
+        x=[]
+        for i in game:
+            x.append(i[col]) 
+        if x.count(x[0])==len(x) and x[0]!=0:
+            print(x)
+            print('Winner')
+
+win(game)
+'''
+
+
+game = [ [1,1,1],
+         [1,1,0],
+         [1,2,1],
+         [1,4,7] ]
+
+def win(current_game):
+    x=[]
+    for row,col in zip(range(len(current_game)),range(len(current_game[0]))):
+        
+        x.append(current_game[row][col])
+    if x.count(x[0])==len(x):
+        print(x)
+        print('Winner')
+        
+            
+win(game)
