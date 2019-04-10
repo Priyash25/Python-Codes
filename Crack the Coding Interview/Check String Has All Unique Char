@@ -1,0 +1,14 @@
+####  Implement an algorithm to determine if a string has all unique characters. What if you
+cannot use additional data structures?
+
+def CheckForDuplicates(String):
+    for i in range(len(String)):
+        if String.replace(' ','').count(String[i])>1:
+            decision='Not Unique'
+            break
+        else:
+            decision='Unique'
+    print('String', String, 'is' , decision)
+        
+for i in ['Hello','Bye','Let me in','Let m In','helo']:
+    CheckForDuplicates(i) 
