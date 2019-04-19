@@ -1,0 +1,12 @@
+	 competitorname	chocolate	fruity	caramel	peanutyalmondy	nougat	crispedricewafer	hard	bar	pluribus	sugarpercent	pricepercent	winpercent
+id													
+0	100 Grand	Yes	No	Yes	No	No	Yes	No	Yes	No	0.732	0.860	66.971725
+1	3 Musketeers	Yes	No	No	No	Yes	No	No	Yes	No	0.604	0.511	67.602936
+2	Air Heads	No	Yes	No	No	No	No	No	No	No	0.906	0.511	52.341465
+3	Almond Joy	Yes	No	No	Yes	No	No	No	Yes	No	0.465	0.767	50.347546
+4	Baby Ruth	Yes	No	Yes	Yes	Yes	No	No	Yes	No	0.604	0.767	56.914547
+
+
+ Which candy has the maximum winpercent:
+# '3 Musketeers' or 'Almond Joy'?  (Please enclose your answer in single quotes.)
+more_popular = candy_data[candy_data['winpercent']==candy_data['winpercent'].max()]
