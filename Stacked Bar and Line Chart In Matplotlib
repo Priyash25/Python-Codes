@@ -1,0 +1,42 @@
+pokemon_stats_legendary = pokemon.groupby(['Legendary', 'Generation']).mean()[['Attack', 'Defense']]
+
+print(pokemon_stats_legendary)
+
+                          Attack     Defense
+Legendary Generation                        
+False     1            74.981250   70.175000
+          2            70.693069   72.118812
+          3            76.971831   69.901408
+          4            79.620370   75.074074
+          5            78.246667   70.486667
+          6            70.459459   74.013514
+True      1           120.833333   89.166667
+          2            99.000000   99.000000
+          3           118.333333  107.222222
+          4           109.846154  103.538462
+          5           120.266667   90.733333
+          6           125.250000  101.375000
+
+
+pokemon_stats_legendary.plot.bar(stacked=True)
+
+## A way to create stacked bar charts in Matplotlib
+
+pokemon_stats_by_generation = pokemon.groupby('Generation').mean()[['HP', 'Attack', 'Defense', 'Sp. Atk', 'Sp. Def', 'Speed']]
+print(pokemon_stats_by_generation)
+
+                   HP     Attack    ...        Sp. Def      Speed
+Generation                          ...                          
+1           65.819277  76.638554    ...      69.090361  72.584337
+2           71.207547  72.028302    ...      73.905660  61.811321
+3           66.543750  81.625000    ...      71.225000  66.925000
+4           73.082645  82.867769    ...      77.190083  71.338843
+5           71.787879  82.066667    ...      68.739394  68.078788
+6           68.268293  75.804878    ...      74.890244  66.439024
+
+[6 rows x 6 columns]
+
+pokemon_stats_by_generation.plot.bar(stacked=True)
+plt.show()
+pokemon_stats_by_generation.plot.line()
+plt.show()
