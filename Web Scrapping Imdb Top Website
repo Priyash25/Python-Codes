@@ -1,0 +1,23 @@
+import requests
+from bs4 import BeautifulSoup
+
+req=requests.get('http://www.imdb.com/chart/top')
+
+imdb=req.content
+data=BeautifulSoup(imdb,'lxml')
+data.find_all('tr') # Have a Good Look at the File Again, How it is Structured.
+
+# Since the 1st element is None so we create a generator to skip 1st element and then loop through others. 
+# Otherwise we could also do something like below
+tr = data.findChildren("tr")
+tr=iter(tr)
+next(tr)
+
+#for movie in data.find_all("tr"): # Returns a List
+#    title=movie.find('td',{'class':'titleColumn'}).find('a').text
+
+for movie in tr:
+    title=movie.find('td',{'class':'titleColumn'}).find('a').text
+    year=movie.find('td',{'class':'titleColumn'}).find('span').text
+    rating=movie.find('td',{'class':'ratingColumn imdbRating'}).find('strong').text
+    print(title + ' - ' + year + ' ' + ' ' + rating)
