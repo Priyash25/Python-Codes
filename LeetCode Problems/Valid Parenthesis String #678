@@ -1,0 +1,38 @@
+def checkValidString(s):
+    
+    if len(s)==0:
+        return True
+    if s[0]==')':
+        return False
+     
+    openstack=[]
+    starstack=[]
+    
+    for i in range(len(s)):
+        
+        if s[i] =='(':
+            openstack.append(i)
+        elif s[i]=='*':
+            starstack.append(i)
+        elif openstack:
+            openstack.pop()
+        elif starstack:
+            starstack.pop()
+        else:
+            return False
+     
+    #print(openstack,starstack)
+    
+    while len(openstack)!=0:
+        if starstack==[]:
+            return False
+        if openstack[-1]<starstack[-1]:
+            openstack.pop()
+            starstack.pop()
+        else:
+            return False
+      
+    return True
+    
+    
+checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*")
