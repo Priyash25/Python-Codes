@@ -1,0 +1,16 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        
+        ans=[]
+        self.backtrack(nums,ans,0,[])
+        return ans
+    
+    def backtrack(self,nums,ans,idx,temp):
+        if idx<=len(nums):
+            #print('Came Here')
+            ans.append(temp)
+        
+        for i in range(idx,len(nums)):
+            self.backtrack(nums,ans,i+1,temp+[nums[i]])
+            
+   I/P :- [1,2,3], O/P:=  [[],[1],[1,2],[1,2,3],[1,3],[2],[2,3],[3]]
